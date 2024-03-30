@@ -1,0 +1,14 @@
+name: BanGuiPlugin
+main: fr.floukiller.banguiplugin.Main
+version: 1.0.0
+api-version: 1.20
+author: Floukiller
+description: Plugin de bannissement avec une interface graphique
+
+commands:
+  bangui:
+    description: Ouvre l'interface graphique de bannissement
+    usage: /<command> <pseudo>
+    permission: banguiplugin.bangui
+    aliases:
+      - bg
