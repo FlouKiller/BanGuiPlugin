@@ -1,15 +1,12 @@
 package fr.floukiller.banguiplugin.commands;
 
-import fr.floukiller.banguiplugin.utils.ItemBuilder;
+import fr.floukiller.banguiplugin.guis.BanguiMenu;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 
 public class BanguiCommand implements CommandExecutor {
     @Override
@@ -34,19 +31,12 @@ public class BanguiCommand implements CommandExecutor {
 
             OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
 
-            Inventory inv = Bukkit.createInventory(null, 54, "§6Bangui de " + target.getName());
+            if(!target.hasPlayedBefore()){
+                player.sendMessage("§cCe joueur n'a jamais joué sur le serveur !");
+                return true;
+            }
 
-            ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD).setSkullOwner(target.getName()).setName("§6" + target.getName()).toItemStack();
-            ItemStack messages = new ItemBuilder(Material.BOOK).setName("§6Messages").setLore("", "Sanctions liées aux", "messages du joueur").toItemStack();
-            ItemStack gameplay = new ItemBuilder(Material.DIAMOND_SWORD).setName("§6Gameplay").setLore("", "Sanctions liées au", "gameplay du joueur").toItemStack();
-            ItemStack cheat = new ItemBuilder(Material.COBWEB).setName("§6Triche").setLore("", "Sanctions concernant la triche").toItemStack();
-
-            inv.setItem(0, playerHead);
-            inv.setItem(1, messages);
-            inv.setItem(2, gameplay);
-            inv.setItem(3, cheat);
-
-            player.openInventory(inv);
+            BanguiMenu.openBanguiMainMenu(player, target);
 
             return true;
         }

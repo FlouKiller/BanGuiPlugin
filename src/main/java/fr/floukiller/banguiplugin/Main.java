@@ -1,5 +1,6 @@
 package fr.floukiller.banguiplugin;
 
+import fr.floukiller.banguiplugin.commands.BanguiCommand;
 import fr.floukiller.banguiplugin.managers.EventsManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -12,6 +13,8 @@ public class Main extends JavaPlugin {
         instance = this;
 
         new EventsManager().registers();
+
+        getCommand("bangui").setExecutor(new BanguiCommand());
 
         getLogger().info("Plugin BanguiPlugin activé !");
     }

@@ -8,30 +8,30 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class BanguiMainMenuListeners implements Listener {
+public class BanguiMessagesMenuListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e){
         if(e.getCurrentItem() == null) return;
 
-        if(e.getView().getTitle().contains("Sanctions")){
+        if(e.getView().getTitle().contains("Messages")){
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
             OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
 
             switch(e.getCurrentItem().getType()){
-                case BOOK:
-                    BanguiMenu.openBanguiMessagesMenu(player, target);
-                    break;
-                case DIAMOND_SWORD:
-                    //Ouvre le menu des sanctions liées au gameplay
-                    break;
-                case COBWEB:
-                    //Ouvre le menu des sanctions liées à la triche
-                    break;
-                case BARRIER:
+                case PAPER:
                     player.closeInventory();
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    break;
+                case BOOK:
+                    player.closeInventory();
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    break;
+                case ARROW:
+                    player.closeInventory();
+                    BanguiMenu.openBanguiMainMenu(player, target);
                     break;
                 default:
                     break;

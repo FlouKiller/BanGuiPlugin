@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="BanGuiPlugin:jar">
-    <output-path>$USER_HOME$/Documents/Plugin exports</output-path>
+    <output-path>$PROJECT_DIR$/../../../../SSD/Serveurs minecraft/Serveur DEV 1.20.4/plugins</output-path>
     <root id="archive" name="BanGuiPlugin.jar">
       <element id="module-output" name="BanGuiPlugin" />
     </root>
