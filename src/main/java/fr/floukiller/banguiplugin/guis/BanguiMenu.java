@@ -15,16 +15,14 @@ public class BanguiMenu {
 
         ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
         ItemStack messages = new ItemBuilder(Material.PAPER, 1).setName("§6Messages").setLore("§fSanctions liées au §bcontenu §fd'un", "§fmessage", "", "§a> §fClic gauche pour ouvrir").toItemStack();
-        ItemStack gameplay = new ItemBuilder(Material.IRON_SWORD, 1).setName("§6Gameplay").setLore("§fSanctions liées au §bcomportement", "§bin-game §f(Mauvais pseudo, skin, ...)", "", "§a> §fClic gauche pour ouvrir").toItemStack();
         ItemStack cheat = new ItemBuilder(Material.ENCHANTED_GOLDEN_APPLE, 1).setName("§6Triche").setLore("§fSanctions liées à la l'utilisation d'§bun", "§bmode de triche§f.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
         ItemStack abuse = new ItemBuilder(Material.LAVA_BUCKET, 1).setName("§6Abus").setLore("§fAbus de la part d'un joueur.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
         ItemStack close = new ItemBuilder(Material.DARK_OAK_DOOR, 1).setName("§cFermer").setLore("§7Fermer le menu").toItemStack();
 
         inv.setItem(0, playerHead);
         inv.setItem(1, messages);
-        inv.setItem(2, gameplay);
-        inv.setItem(3, cheat);
-        inv.setItem(4, abuse);
+        inv.setItem(2, cheat);
+        inv.setItem(3, abuse);
         inv.setItem(53, close);
 
         player.openInventory(inv);

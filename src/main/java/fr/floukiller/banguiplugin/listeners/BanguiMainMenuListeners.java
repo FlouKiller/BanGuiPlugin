@@ -25,8 +25,6 @@ public class BanguiMainMenuListeners implements Listener {
                 case PAPER:
                     BanguiMenu.openBanguiMessagesMenu(player, target);
                     break;
-                case IRON_SWORD:
-                    break;
                 case ENCHANTED_GOLDEN_APPLE:
                     BanguiMenu.openBanguiCheatMenu(player, target);
                     break;
