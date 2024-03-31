@@ -28,6 +28,7 @@ public class BanguiMainMenuListeners implements Listener {
                 case IRON_SWORD:
                     break;
                 case ENCHANTED_GOLDEN_APPLE:
+                    BanguiMenu.openBanguiCheatMenu(player, target);
                     break;
                 case LAVA_BUCKET:
                     break;
