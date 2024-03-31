@@ -100,4 +100,26 @@ public class BanguiMenu {
         player.openInventory(inv);
 
     }
+
+    public static void openBanguiAbuseMenu(Player player, OfflinePlayer target){
+        Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Abus");
+
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack reportAbuse = new ItemBuilder(Material.ZOMBIE_HEAD, 1).setName("§6Abus de report").setLore("§fAbus de la commande /report", "§futilisée pour signaler un joueur", "§fà tort", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack badReport = new ItemBuilder(Material.STONE_SWORD, 1).setName("§6Report quelque chose d'autorisé").setLore("§fReport délibérément quelque chose qui", "§fn'est pas interdit sur le serveur", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack badSkin = new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setName("§6Skin inapproprié").setLore("§fUtilisation d'un skin inapproprié", "§fou choquant", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack badUsername = new ItemBuilder(Material.NAME_TAG, 1).setName("§6Pseudo inapproprié").setLore("§fUtilisation d'un pseudo inapproprié", "§fou choquant", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack badBuild = new ItemBuilder(Material.STONE_BRICKS, 1).setName("§6Construction inappropriée").setLore("§fConstruction inappropriée", "§fou choquante", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack back = new ItemBuilder(Material.ARROW, 1).setName("§aRetour").toItemStack();
+
+        inv.setItem(0, playerHead);
+        inv.setItem(1, reportAbuse);
+        inv.setItem(2, badReport);
+        inv.setItem(3, badSkin);
+        inv.setItem(4, badUsername);
+        inv.setItem(5, badBuild);
+        inv.setItem(53, back);
+
+        player.openInventory(inv);
+    }
 }
