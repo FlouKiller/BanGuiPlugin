@@ -31,6 +31,7 @@ public class BanguiMainMenuListeners implements Listener {
                     BanguiMenu.openBanguiCheatMenu(player, target);
                     break;
                 case LAVA_BUCKET:
+                    BanguiMenu.openBanguiAbuseMenu(player, target);
                     break;
                 case DARK_OAK_DOOR:
                     player.closeInventory();
