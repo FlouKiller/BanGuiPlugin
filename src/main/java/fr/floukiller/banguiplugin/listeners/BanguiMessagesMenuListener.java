@@ -27,15 +27,64 @@ public class BanguiMessagesMenuListener implements Listener {
                                     .substring(2));
 
             switch(e.getCurrentItem().getType()){
-                case PAPER:
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                case WOODEN_HOE:
+                    // uselessMessage
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case GLASS_BOTTLE:
+                    // fakeNews
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case ZOMBIE_HEAD:
+                    // smsLanguage
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case TROPICAL_FISH:
+                    // incorrectFormatting
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case TNT:
+                    // flood
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case ROTTEN_FLESH:
+                    // badLanguage
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case WATER_BUCKET:
+                    // provocation
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case SKELETON_SKULL:
+                    // insult
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case ENDER_PEARL:
+                    // crimeIncitement
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
                     break;
                 case BOOK:
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    // bypassChatProtection
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case BARRIER:
+                    // forbiddenLink
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case RED_BANNER:
+                    // advertising
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case CARROT_ON_A_STICK:
+                    // hack
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
+                    break;
+                case WITHER_SKELETON_SKULL:
+                    // irlMenace
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible.");
                     break;
                 case ARROW:
+                    // back
                     BanguiMenu.openBanguiMainMenu(player, target);
                     break;
                 default:
