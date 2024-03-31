@@ -14,23 +14,24 @@ public class BanguiMainMenuListeners implements Listener {
     public void onInventoryClick(InventoryClickEvent e){
         if(e.getCurrentItem() == null) return;
 
-        if(e.getView().getTitle().contains("Sanctions")){
+        if(e.getView().getTitle().contains("Menu de sanctions")){
+
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
             OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
 
             switch(e.getCurrentItem().getType()){
-                case BOOK:
+                case PAPER:
                     BanguiMenu.openBanguiMessagesMenu(player, target);
                     break;
-                case DIAMOND_SWORD:
-                    //Ouvre le menu des sanctions liées au gameplay
+                case IRON_SWORD:
                     break;
-                case COBWEB:
-                    //Ouvre le menu des sanctions liées à la triche
+                case ENCHANTED_GOLDEN_APPLE:
                     break;
-                case BARRIER:
+                case LAVA_BUCKET:
+                    break;
+                case DARK_OAK_DOOR:
                     player.closeInventory();
                     break;
                 default:

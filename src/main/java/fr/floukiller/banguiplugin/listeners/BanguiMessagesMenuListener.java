@@ -8,6 +8,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import java.util.Objects;
+
 public class BanguiMessagesMenuListener implements Listener {
 
     @EventHandler
@@ -18,7 +20,11 @@ public class BanguiMessagesMenuListener implements Listener {
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
-            OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
+            OfflinePlayer target = Bukkit.getOfflinePlayer(Objects.requireNonNull(Objects.requireNonNull(e.getInventory()
+                                    .getItem(0))
+                                    .getItemMeta())
+                                    .getDisplayName()
+                                    .substring(2));
 
             switch(e.getCurrentItem().getType()){
                 case PAPER:
@@ -30,7 +36,6 @@ public class BanguiMessagesMenuListener implements Listener {
                     player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
                     break;
                 case ARROW:
-                    player.closeInventory();
                     BanguiMenu.openBanguiMainMenu(player, target);
                     break;
                 default:

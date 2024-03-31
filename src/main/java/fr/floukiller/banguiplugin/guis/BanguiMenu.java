@@ -11,18 +11,20 @@ import org.bukkit.inventory.ItemStack;
 public class BanguiMenu {
 
     public static void openBanguiMainMenu(Player player, OfflinePlayer target){
-        Inventory inv = Bukkit.createInventory(null, 54, "Sanctions");
+        Inventory inv = Bukkit.createInventory(null, 54, "Menu de sanctions");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD).setSkullOwner(target.getName()).setName("§6" + target.getName()).toItemStack();
-        ItemStack messages = new ItemBuilder(Material.BOOK).setName("§6Messages").setLore("", "§fSanctions liées aux", "§fmessages du joueur").toItemStack();
-        ItemStack gameplay = new ItemBuilder(Material.DIAMOND_SWORD).setName("§6Gameplay").setLore("", "§fSanctions liées au", "§fgameplay du joueur").toItemStack();
-        ItemStack cheat = new ItemBuilder(Material.COBWEB).setName("§6Triche").setLore("", "§fSanctions concernant la triche").toItemStack();
-        ItemStack close = new ItemBuilder(Material.BARRIER).setName("§cFermer").toItemStack();
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack messages = new ItemBuilder(Material.PAPER, 1).setName("§6Messages").setLore("§fSanctions liées au §bcontenu §fd'un", "§fmessage", "", "§a> §fClic gauche pour ouvrir").toItemStack();
+        ItemStack gameplay = new ItemBuilder(Material.IRON_SWORD, 1).setName("§6Gameplay").setLore("§fSanctions liées au §bcomportement", "§bin-game §f(Mauvais pseudo, skin, ...)", "", "§a> §fClic gauche pour ouvrir").toItemStack();
+        ItemStack cheat = new ItemBuilder(Material.ENCHANTED_GOLDEN_APPLE, 1).setName("§6Triche").setLore("§fSanctions liées à la l'utilisation d'§bun", "§bmode de triche§f.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
+        ItemStack abus = new ItemBuilder(Material.LAVA_BUCKET, 1).setName("§6Abus").setLore("§fAbus de la part d'un joueur.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
+        ItemStack close = new ItemBuilder(Material.DARK_OAK_DOOR, 1).setName("§cFermer").setLore("§7Fermer le menu").toItemStack();
 
         inv.setItem(0, playerHead);
         inv.setItem(1, messages);
         inv.setItem(2, gameplay);
         inv.setItem(3, cheat);
+        inv.setItem(4, abus);
         inv.setItem(53, close);
 
         player.openInventory(inv);
