@@ -47,7 +47,7 @@ public class BanguiMenu {
         ItemStack forbiddenLink = new ItemBuilder(Material.BARRIER, 1).setName("§6Lien interdit").setLore("§fEnvoi de lien interdit mais", "§fsans tentative de hack", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack advertising = new ItemBuilder(Material.RED_BANNER, 1).setName("§6Publicité").setLore("§fPublicité pour un serveur", "§fou un site", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack hack = new ItemBuilder(Material.CARROT_ON_A_STICK, 1).setName("§6DDOS ou Hack/Fake/Phishing").setLore("§fTentative de hack d'un", "§fautre utilisateur", "", "§a> §fClic gauche pour appliquer").toItemStack();
-        ItemStack irlMenace = new ItemBuilder(Material.WITHER_SKELETON_SKULL, 1).setName("§6Menace IRL").setLore("§fMenace IRL", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack irlMenace = new ItemBuilder(Material.WITHER_SKELETON_SKULL, 1).setName("§6Menace IRL").setLore("§fMenace IRL sur un autre joueur", "§f(Menaces physiques, etc...)", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack back = new ItemBuilder(Material.ARROW, 1).setName("§aRetour").toItemStack();
 
         inv.setItem(0, playerHead);
@@ -70,4 +70,34 @@ public class BanguiMenu {
         player.openInventory(inv);
     }
 
+    public static void openBanguiCheatMenu(Player player, OfflinePlayer target) {
+        Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Triche");
+
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack antiKb = new ItemBuilder(Material.COBWEB, 1).setName("§6Triche : Anti-Knockback").setLore("§fUtilisation d'un anti-knockback", "§fpermettant de ne pas reculer", "§flors d'un coup", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack killAura = new ItemBuilder(Material.IRON_SWORD, 1).setName("§6Triche : KillAura").setLore("§fUtilisation d'un KillAura", "§fpermettant de frapper et viser", "§fautomatiquement", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack timer = new ItemBuilder(Material.CLOCK, 1).setName("§6Triche : Timer").setLore("§fUtilisation d'un timer", "§fpermettant d'augmenter la vitesse", "§fdu jeu pour faire certaines actions", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack reach = new ItemBuilder(Material.BOW, 1).setName("§6Triche : Reach").setLore("§fUtilisation d'un reach", "§fpermettant de frapper plus loin", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack macro = new ItemBuilder(Material.DIAMOND_AXE, 1).setName("§6Triche : Macro").setLore("§fUtilisation d'une macro", "§fpermettant de cliquer très", "§frapidement et automatiquement", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack fly = new ItemBuilder(Material.ELYTRA, 1).setName("§6Triche : Fly").setLore("§fUtilisation d'un fly", "§fpermettant de voler", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack speedhack = new ItemBuilder(Material.SUGAR, 1).setName("§6Triche : Speedhack").setLore("§fUtilisation d'un speedhack", "§fpermettant de courir plus vite", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack xray = new ItemBuilder(Material.DIAMOND_ORE, 1).setName("§6Triche : X-Ray").setLore("§fUtilisation d'un X-Ray", "§fpermettant de voir à travers les blocs", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack scaffold = new ItemBuilder(Material.SCAFFOLDING, 1).setName("§6Triche : Scaffold").setLore("§fUtilisation d'un scaffold", "§fpermettant de construire plus rapidement", "", "§a> §fClic gauche pour appliquer").toItemStack();
+        ItemStack back = new ItemBuilder(Material.ARROW, 1).setName("§aRetour").toItemStack();
+
+        inv.setItem(0, playerHead);
+        inv.setItem(1, antiKb);
+        inv.setItem(2, killAura);
+        inv.setItem(3, timer);
+        inv.setItem(4, reach);
+        inv.setItem(5, macro);
+        inv.setItem(6, fly);
+        inv.setItem(7, speedhack);
+        inv.setItem(8, xray);
+        inv.setItem(9, scaffold);
+        inv.setItem(53, back);
+
+        player.openInventory(inv);
+
+    }
 }
