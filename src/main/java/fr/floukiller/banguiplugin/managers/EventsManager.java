@@ -1,6 +1,7 @@
 package fr.floukiller.banguiplugin.managers;
 
 import fr.floukiller.banguiplugin.Main;
+import fr.floukiller.banguiplugin.listeners.BanguiAbuseMenuListeners;
 import fr.floukiller.banguiplugin.listeners.BanguiCheatMenuListeners;
 import fr.floukiller.banguiplugin.listeners.BanguiMainMenuListeners;
 import fr.floukiller.banguiplugin.listeners.BanguiMessagesMenuListener;
@@ -14,5 +15,6 @@ public class EventsManager {
         pm.registerEvents(new BanguiMainMenuListeners(), Main.getInstance());
         pm.registerEvents(new BanguiMessagesMenuListener(), Main.getInstance());
         pm.registerEvents(new BanguiCheatMenuListeners(), Main.getInstance());
+        pm.registerEvents(new BanguiAbuseMenuListeners(), Main.getInstance());
     }
 }
