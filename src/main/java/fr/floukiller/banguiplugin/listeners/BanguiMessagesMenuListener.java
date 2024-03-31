@@ -1,6 +1,7 @@
 package fr.floukiller.banguiplugin.listeners;
 
 import fr.floukiller.banguiplugin.guis.BanguiMenu;
+import fr.floukiller.banguiplugin.managers.BanManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -79,8 +80,8 @@ public class BanguiMessagesMenuListener implements Listener {
                     break;
                 case BARRIER:
                     // forbiddenLink
+                    BanManager.banPlayer(player, target, "Publicité interdite", 24);
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case RED_BANNER:
                     // advertising
@@ -89,13 +90,13 @@ public class BanguiMessagesMenuListener implements Listener {
                     break;
                 case CARROT_ON_A_STICK:
                     // hack
+                    BanManager.banPlayer(player, target, "Tentative ou menace de hack", 24*30);
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case WITHER_SKELETON_SKULL:
                     // irlMenace
+                    BanManager.banPlayer(player, target, "Menace IRL", -1);
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case ARROW:
                     // back
