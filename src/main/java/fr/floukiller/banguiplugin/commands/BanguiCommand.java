@@ -31,11 +31,6 @@ public class BanguiCommand implements CommandExecutor {
 
             OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
 
-            if(!target.hasPlayedBefore()){
-                player.sendMessage("§cCe joueur n'a jamais joué sur le serveur !");
-                return true;
-            }
-
             BanguiMenu.openBanguiMainMenu(player, target);
 
             return true;
