@@ -25,47 +25,47 @@ public class BanguiCheatMenuListeners implements Listener {
                 case COBWEB:
                     //AntiKnockback
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case IRON_SWORD:
                     //KillAura
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case CLOCK:
                     //Timer
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case BOW:
                     //Reach
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case DIAMOND_AXE:
                     //Macro
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case ELYTRA:
                     //Fly
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case SUGAR:
                     //Speedhack
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case DIAMOND_ORE:
                     //Xray
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case SCAFFOLDING:
                     //Scaffold
                     player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible !");
+                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
                     break;
                 case ARROW:
                     //Back
