@@ -19,6 +19,11 @@ public class BannedPlayerLoginListener implements Listener {
 
         if(e.getResult() == PlayerLoginEvent.Result.KICK_BANNED){
 
+            //Verifier si c'est un ban ip ou pseudo
+            if(Bukkit.getBanList(BanList.Type.IP).isBanned(e.getAddress().getHostAddress())){
+                return;
+            }
+
             Player player = e.getPlayer();
             BanEntry<?> banEntry = Bukkit.getBanList(BanList.Type.PROFILE).getBanEntry(player.getName());
 
