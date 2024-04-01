@@ -1,6 +1,7 @@
 package fr.floukiller.banguiplugin.listeners;
 
 import fr.floukiller.banguiplugin.guis.BanguiMenu;
+import fr.floukiller.banguiplugin.managers.SanctionsManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -40,7 +41,8 @@ public class BanGuiConfirmMenuListener implements Listener {
                 case LIME_DYE:
                     //Confirmer la sanction
 
-
+                    SanctionsManager.getSanctionFromReason(player, target, reason);
+                    player.closeInventory();
 
                     break;
 

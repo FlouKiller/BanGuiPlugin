@@ -1,7 +1,6 @@
 package fr.floukiller.banguiplugin.listeners;
 
 import fr.floukiller.banguiplugin.guis.BanguiMenu;
-import fr.floukiller.banguiplugin.managers.BanManager;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
