@@ -29,48 +29,48 @@ public class BanguiAbuseMenuListeners implements Listener {
                     .substring(2));
 
             ItemStack sanctionItem;
+            String category = "Abus";
 
             switch(e.getCurrentItem().getType()){
                 case ZOMBIE_HEAD:
                     //reportAbuse
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case STONE_SWORD:
                     //badReport
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case LEATHER_CHESTPLATE:
                     //badSkin
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case NAME_TAG:
                     //badUsername
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case STONE_BRICKS:
                     //badBuild
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ARROW:
                     //back
 
-                    sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiMainMenu(player, target);
 
                     break;
                 default:

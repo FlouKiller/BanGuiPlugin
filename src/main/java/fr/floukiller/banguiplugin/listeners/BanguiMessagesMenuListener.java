@@ -29,111 +29,111 @@ public class BanguiMessagesMenuListener implements Listener {
                                     .substring(2));
 
             ItemStack sanctionItem;
+            String category = "Messages";
 
             switch(e.getCurrentItem().getType()){
                 case WOODEN_HOE:
                     // uselessMessage
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case GLASS_BOTTLE:
                     // fakeNews
 
                      sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ZOMBIE_HEAD:
                     // smsLanguage
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case TROPICAL_FISH:
                     // incorrectFormatting
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case TNT:
                     // flood
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ROTTEN_FLESH:
                     // badLanguage
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case WATER_BUCKET:
                     // provocation
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case SKELETON_SKULL:
                     // insult
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ENDER_PEARL:
                     // crimeIncitement
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case BOOK:
                     // bypassChatProtection
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case BARRIER:
                     // forbiddenLink
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case RED_BANNER:
                     // advertising
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case CARROT_ON_A_STICK:
                     // hack
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case WITHER_SKELETON_SKULL:
                     // irlMenace
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ARROW:
                     // back
 
-                    sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiMainMenu(player, target);
 
                     break;
                 default:

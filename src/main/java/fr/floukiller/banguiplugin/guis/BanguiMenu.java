@@ -7,6 +7,10 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Collections;
+import java.util.Objects;
 
 public class BanguiMenu {
 
@@ -31,7 +35,7 @@ public class BanguiMenu {
     public static void openBanguiMessagesMenu(Player player, OfflinePlayer target){
         Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Messages");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§7Catégorie : Messages").toItemStack();
         ItemStack uselessMessage = new ItemBuilder(Material.WOODEN_HOE, 1).setName("§6Message inutile").setLore("§fMessage inutile, sans intérêt", "§fAttention au contexte, ne pas", "§fsanctionner si ça ne dérange personne.", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack fakeNews = new ItemBuilder(Material.GLASS_BOTTLE, 1).setName("§6Fausse information").setLore("§fDiffusion de §bfausses informations", "§fsans se renseigner ou pour troller.", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack smsLanguage = new ItemBuilder(Material.ZOMBIE_HEAD, 1).setName("§6Langage SMS").setLore("§fUtilisation abusive du langage SMS", "§fou des abréviations.", "", "§a> §fClic gauche pour appliquer").toItemStack();
@@ -71,7 +75,7 @@ public class BanguiMenu {
     public static void openBanguiCheatMenu(Player player, OfflinePlayer target) {
         Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Triche");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§7Catégorie : Triche").toItemStack();
         ItemStack antiKb = new ItemBuilder(Material.COBWEB, 1).setName("§6Triche : Anti-Knockback").setLore("§fUtilisation d'un anti-knockback", "§fpermettant de ne pas reculer", "§flors d'un coup", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack killAura = new ItemBuilder(Material.IRON_SWORD, 1).setName("§6Triche : KillAura").setLore("§fUtilisation d'un KillAura", "§fpermettant de frapper et viser", "§fautomatiquement", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack timer = new ItemBuilder(Material.CLOCK, 1).setName("§6Triche : Timer").setLore("§fUtilisation d'un timer", "§fpermettant d'augmenter la vitesse", "§fdu jeu pour faire certaines actions", "", "§a> §fClic gauche pour appliquer").toItemStack();
@@ -102,7 +106,7 @@ public class BanguiMenu {
     public static void openBanguiAbuseMenu(Player player, OfflinePlayer target){
         Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Abus");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§7Catégorie : Abus").toItemStack();
         ItemStack reportAbuse = new ItemBuilder(Material.ZOMBIE_HEAD, 1).setName("§6Abus de report").setLore("§fAbus de la commande /report", "§futilisée pour signaler un joueur", "§fà tort", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack badReport = new ItemBuilder(Material.STONE_SWORD, 1).setName("§6Report quelque chose d'autorisé").setLore("§fReport délibérément quelque chose qui", "§fn'est pas interdit sur le serveur", "", "§a> §fClic gauche pour appliquer").toItemStack();
         ItemStack badSkin = new ItemBuilder(Material.LEATHER_CHESTPLATE, 1).setName("§6Skin inapproprié").setLore("§fUtilisation d'un skin inapproprié", "§fou choquant", "", "§a> §fClic gauche pour appliquer").toItemStack();
@@ -121,12 +125,17 @@ public class BanguiMenu {
         player.openInventory(inv);
     }
 
-    public static void openBanguiConfirmMenu(Player player, OfflinePlayer target, ItemStack sanctionItem){
+    public static void openBanguiConfirmMenu(Player player, OfflinePlayer target, ItemStack sanctionItem, String category){
         Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Confirmation");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§7Catégorie : " + category).toItemStack();
         ItemStack confirm = new ItemBuilder(Material.LIME_DYE, 1).setName("§aConfirmer").setLore("§fConfirmer la sanction").toItemStack();
         ItemStack cancel = new ItemBuilder(Material.RED_DYE, 1).setName("§cAnnuler").setLore("§fAnnuler la sanction").toItemStack();
+
+        int lines = Objects.requireNonNull(sanctionItem.getItemMeta()).getLore().size();
+        ItemMeta meta = sanctionItem.getItemMeta();
+        meta.setLore(sanctionItem.getItemMeta().getLore().subList(0, lines - 2));
+        sanctionItem.setItemMeta(meta);
 
         inv.setItem(0, playerHead);
         inv.setItem(22, sanctionItem);

@@ -29,76 +29,76 @@ public class BanguiCheatMenuListeners implements Listener {
                     .substring(2));
 
             ItemStack sanctionItem;
+            String category = "Triche";
 
             switch(e.getCurrentItem().getType()){
                 case COBWEB:
                     //AntiKnockback
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case IRON_SWORD:
                     //KillAura
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case CLOCK:
                     //Timer
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case BOW:
                     //Reach
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case DIAMOND_AXE:
                     //Macro
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ELYTRA:
                     //Fly
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case SUGAR:
                     //Speedhack
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case DIAMOND_ORE:
                     //Xray
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case SCAFFOLDING:
                     //Scaffold
 
                     sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem, category);
 
                     break;
                 case ARROW:
                     //Back
 
-                    sanctionItem = e.getCurrentItem();
-                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+                    BanguiMenu.openBanguiMainMenu(player, target);
 
                     break;
                 default:

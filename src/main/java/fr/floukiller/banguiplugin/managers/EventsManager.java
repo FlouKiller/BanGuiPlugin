@@ -14,5 +14,6 @@ public class EventsManager {
         pm.registerEvents(new BanguiCheatMenuListeners(), Main.getInstance());
         pm.registerEvents(new BanguiAbuseMenuListeners(), Main.getInstance());
         pm.registerEvents(new BannedPlayerLoginListener(), Main.getInstance());
+        pm.registerEvents(new BanGuiConfirmMenuListener(), Main.getInstance());
     }
 }
