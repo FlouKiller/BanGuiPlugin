@@ -7,6 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Objects;
 
 public class BanguiMainMenuListeners implements Listener {
 
@@ -19,7 +22,11 @@ public class BanguiMainMenuListeners implements Listener {
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
-            OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
+            OfflinePlayer target = Bukkit.getOfflinePlayer(Objects.requireNonNull(Objects.requireNonNull(e.getInventory()
+                    .getItem(0))
+                    .getItemMeta())
+                    .getDisplayName()
+                    .substring(2));
 
             switch(e.getCurrentItem().getType()){
                 case PAPER:

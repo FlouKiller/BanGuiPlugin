@@ -7,6 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Objects;
 
 public class BanguiCheatMenuListeners implements Listener {
 
@@ -19,57 +22,86 @@ public class BanguiCheatMenuListeners implements Listener {
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
-            OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
+            OfflinePlayer target = Bukkit.getOfflinePlayer(Objects.requireNonNull(Objects.requireNonNull(e.getInventory()
+                    .getItem(0))
+                    .getItemMeta())
+                    .getDisplayName()
+                    .substring(2));
+
+            ItemStack sanctionItem;
 
             switch(e.getCurrentItem().getType()){
                 case COBWEB:
                     //AntiKnockback
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case IRON_SWORD:
                     //KillAura
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case CLOCK:
                     //Timer
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case BOW:
                     //Reach
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case DIAMOND_AXE:
                     //Macro
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ELYTRA:
                     //Fly
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case SUGAR:
                     //Speedhack
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case DIAMOND_ORE:
                     //Xray
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case SCAFFOLDING:
                     //Scaffold
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ARROW:
                     //Back
-                    BanguiMenu.openBanguiMainMenu(player, target);
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
+                    break;
+                default:
                     break;
             }
         }

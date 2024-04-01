@@ -120,4 +120,19 @@ public class BanguiMenu {
 
         player.openInventory(inv);
     }
+
+    public static void openBanguiConfirmMenu(Player player, OfflinePlayer target, ItemStack sanctionItem){
+        Inventory inv = Bukkit.createInventory(null, 54, "Sanctions - Confirmation");
+
+        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack confirm = new ItemBuilder(Material.LIME_DYE, 1).setName("§aConfirmer").setLore("§fConfirmer la sanction").toItemStack();
+        ItemStack cancel = new ItemBuilder(Material.RED_DYE, 1).setName("§cAnnuler").setLore("§fAnnuler la sanction").toItemStack();
+
+        inv.setItem(0, playerHead);
+        inv.setItem(22, sanctionItem);
+        inv.setItem(30, confirm);
+        inv.setItem(32, cancel);
+
+        player.openInventory(inv);
+    }
 }

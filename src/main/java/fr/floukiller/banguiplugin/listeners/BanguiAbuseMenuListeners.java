@@ -7,6 +7,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Objects;
 
 public class BanguiAbuseMenuListeners implements Listener {
 
@@ -19,37 +22,56 @@ public class BanguiAbuseMenuListeners implements Listener {
             e.setCancelled(true);
 
             Player player = (Player) e.getWhoClicked();
-            OfflinePlayer target = Bukkit.getOfflinePlayer(e.getInventory().getItem(0).getItemMeta().getDisplayName().substring(2));
+            OfflinePlayer target = Bukkit.getOfflinePlayer(Objects.requireNonNull(Objects.requireNonNull(e.getInventory()
+                    .getItem(0))
+                    .getItemMeta())
+                    .getDisplayName()
+                    .substring(2));
+
+            ItemStack sanctionItem;
 
             switch(e.getCurrentItem().getType()){
                 case ZOMBIE_HEAD:
                     //reportAbuse
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case STONE_SWORD:
                     //badReport
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case LEATHER_CHESTPLATE:
                     //badSkin
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case NAME_TAG:
                     //badUsername
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case STONE_BRICKS:
                     //badBuild
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ARROW:
                     //back
-                    BanguiMenu.openBanguiMainMenu(player, target);
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 default:
                     break;

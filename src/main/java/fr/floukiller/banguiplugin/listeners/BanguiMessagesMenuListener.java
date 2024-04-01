@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Objects;
 
@@ -27,80 +28,113 @@ public class BanguiMessagesMenuListener implements Listener {
                                     .getDisplayName()
                                     .substring(2));
 
+            ItemStack sanctionItem;
+
             switch(e.getCurrentItem().getType()){
                 case WOODEN_HOE:
                     // uselessMessage
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case GLASS_BOTTLE:
                     // fakeNews
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                     sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ZOMBIE_HEAD:
                     // smsLanguage
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case TROPICAL_FISH:
                     // incorrectFormatting
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case TNT:
                     // flood
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ROTTEN_FLESH:
                     // badLanguage
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case WATER_BUCKET:
                     // provocation
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case SKELETON_SKULL:
                     // insult
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ENDER_PEARL:
                     // crimeIncitement
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case BOOK:
                     // bypassChatProtection
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case BARRIER:
                     // forbiddenLink
-                    BanManager.banPlayer(player, target, "Publicité interdite", 24);
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case RED_BANNER:
                     // advertising
-                    player.closeInventory();
-                    player.sendMessage("§cCette fonctionnalité n'est pas encore disponible");
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case CARROT_ON_A_STICK:
                     // hack
-                    BanManager.banPlayer(player, target, "Tentative ou menace de hack", 24*30);
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case WITHER_SKELETON_SKULL:
                     // irlMenace
-                    BanManager.banPlayer(player, target, "Menace IRL", -1);
-                    player.closeInventory();
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 case ARROW:
                     // back
-                    BanguiMenu.openBanguiMainMenu(player, target);
+
+                    sanctionItem = e.getCurrentItem();
+                    BanguiMenu.openBanguiConfirmMenu(player, target, sanctionItem);
+
                     break;
                 default:
                     break;
