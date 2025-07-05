@@ -41,7 +41,7 @@
 |----------|-------------|------------|-------------|
 | `/bangui <joueur>` | Ouvre l'interface de sanctions | `banguiplugin.bangui` | `/bangui Notch` |
 | `/bg <joueur>` | Alias de `/bangui` | `banguiplugin.bangui` | `/bg Notch` |
-| `/mute <joueur> <durée> <raison>` | Mute un joueur | `banguiplugin.mute` | `/mute Notch 1h Spam` |
+| `/mute <joueur> <durée en secondes> <raison>` | Mute un joueur | `banguiplugin.mute` | `/mute Notch 3600 Spam` |
 | `/unmute <joueur>` | Démute un joueur | `banguiplugin.unmute` | `/unmute Notch` |
 
 ## 🔐 Permissions
@@ -99,7 +99,7 @@ src/main/java/fr/floukiller/banguiplugin/
 
 ```bash
 # Cloner le projet
-git clone https://github.com/votre-username/BanGuiPlugin.git
+git clone https://github.com/FlouKiller/BanGuiPlugin.git
 cd BanGuiPlugin
 
 # Compiler avec Maven
@@ -145,7 +145,7 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de
 
 ## 👨‍💻 Auteur
 
-**Floukiller** - Développeur principal
+**FlouKiller** - Développeur principal
 
 ---
 
