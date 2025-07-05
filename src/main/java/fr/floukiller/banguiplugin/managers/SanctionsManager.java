@@ -5,9 +5,14 @@ import org.bukkit.BanEntry;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 public class SanctionsManager {
 
@@ -16,6 +21,7 @@ public class SanctionsManager {
         switch(reason){
             case "Message inutile":
                 //Sanction en cas de message inutile
+                mutePlayer(sender, target, reason, 60 * 5);
                 break;
             case "Fausse information":
                 //Sanction en cas de fausse information
@@ -150,5 +156,98 @@ public class SanctionsManager {
 
         sender.sendMessage("§aLe joueur " + target.getName() + " a bien été banni pour " + reason);
     }
+
+    public static void mutePlayer(Player sender, OfflinePlayer target, String reason, int duration) {
+        File folder = Main.getInstance().getDataFolder();
+        if (!folder.exists()) {
+            folder.mkdirs(); // Crée le dossier du plugin s'il n'existe pas
+        }
+
+        File file = new File(folder, "mutedPlayers.yml");
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                sender.sendMessage("§cErreur lors de la création du fichier de mute.");
+                e.printStackTrace();
+                return;
+            }
+        }
+
+        if (isMuted(target)) {
+            sender.sendMessage("§cCe joueur est déjà mute !");
+            return;
+        }
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        UUID uuid = target.getUniqueId();
+        String path = "muted." + uuid;
+
+        config.set(path + ".name", target.getName());
+        config.set(path + ".reason", reason);
+        config.set(path + ".duration", duration); // durée en secondes
+        config.set(path + ".start", System.currentTimeMillis());
+
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            sender.sendMessage("§cErreur lors de l'enregistrement du fichier de mute.");
+            e.printStackTrace();
+            return;
+        }
+
+        sender.sendMessage("§aLe joueur " + target.getName() + " a été mute pour " + duration + " secondes. Raison : " + reason);
+    }
+
+    public static boolean isMuted(OfflinePlayer target) {
+        File file = new File(Main.getInstance().getDataFolder(), "mutedPlayers.yml");
+        if (!file.exists()) return false;
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        UUID targetUUID = target.getUniqueId();
+        String path = "muted." + targetUUID;
+
+        if (!config.contains(path)) return false;
+
+        long start = config.getLong(path + ".start");
+        int duration = config.getInt(path + ".duration"); // en secondes
+
+        if (duration == -1) return true; // mute permanent
+
+        long now = System.currentTimeMillis();
+        long end = start + duration * 1000L;
+
+        if (now > end) {
+            // Mute expiré, suppression automatique
+            config.set(path, null);
+            try {
+                config.save(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+
+        return true;
+    }
+
+    public static void unmutePlayer(OfflinePlayer target) {
+        File file = new File(Main.getInstance().getDataFolder(), "mutedPlayers.yml");
+        if (!file.exists()) return;
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        UUID targetUUID = target.getUniqueId();
+        String path = "muted." + targetUUID;
+
+        if (config.contains(path)) {
+            config.set(path, null);
+            try {
+                config.save(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }
