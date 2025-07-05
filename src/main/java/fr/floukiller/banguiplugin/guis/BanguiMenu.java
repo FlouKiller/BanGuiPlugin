@@ -17,7 +17,13 @@ public class BanguiMenu {
     public static void openBanguiMainMenu(Player player, OfflinePlayer target){
         Inventory inv = Bukkit.createInventory(null, 54, "Menu de sanctions");
 
-        ItemStack playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).toItemStack();
+        ItemStack playerHead = null;
+        if(target.isOnline()){
+            Player onlineTarget = (Player) target;
+            playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§aEn ligne", "§fVie : " + onlineTarget.getHealth(), "§fNourriture : " + onlineTarget.getFoodLevel(), "§fIP : " + onlineTarget.getAddress().toString().split(":")[0].substring(1)).toItemStack();
+        } else {
+            playerHead = new ItemBuilder(Material.PLAYER_HEAD, 1, (short)3).setSkullOwner(target.getName()).setName("§b" + target.getName()).setLore("§7Hors ligne").toItemStack();
+        }
         ItemStack messages = new ItemBuilder(Material.PAPER, 1).setName("§6Messages").setLore("§fSanctions liées au §bcontenu §fd'un", "§fmessage", "", "§a> §fClic gauche pour ouvrir").toItemStack();
         ItemStack cheat = new ItemBuilder(Material.ENCHANTED_GOLDEN_APPLE, 1).setName("§6Triche").setLore("§fSanctions liées à la l'utilisation d'§bun", "§bmode de triche§f.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
         ItemStack abuse = new ItemBuilder(Material.LAVA_BUCKET, 1).setName("§6Abus").setLore("§fAbus de la part d'un joueur.", "", "§a> §fClic gauche pour ouvrir").toItemStack();
