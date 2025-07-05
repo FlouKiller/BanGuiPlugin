@@ -20,106 +20,90 @@ public class SanctionsManager {
 
     public static void getSanctionFromReason(Player sender, OfflinePlayer target, String reason){
 
-        switch(reason){
+        switch (reason) {
             case "Message inutile":
-                //Sanction en cas de message inutile
-                mutePlayer(sender, target, reason, 60 * 5);
+                mutePlayer(sender, target, reason, 300); // 5 minutes
                 break;
             case "Fausse information":
-                //Sanction en cas de fausse information
+                mutePlayer(sender, target, reason, 600); // 10 minutes
                 break;
             case "Langage SMS":
-                // Sanction en cas d'utilisation abusive du langage SMS
+                mutePlayer(sender, target, reason, 600); // 10 minutes
                 break;
             case "Mauvais formatage":
-                // Sanction en cas de mauvais formatage du message
+                mutePlayer(sender, target, reason, 300); // 5 minutes
                 break;
             case "Flood":
-                // Sanction en cas d'envoi répété de messages
+                mutePlayer(sender, target, reason, 900); // 15 minutes
                 break;
             case "Langage inapproprié":
-                // Sanction en cas d'utilisation de langage inapproprié
+                mutePlayer(sender, target, reason, 1800); // 30 minutes
                 break;
             case "Provocation":
-                // Sanction en cas de provocation envers un joueur
+                mutePlayer(sender, target, reason, 1800); // 30 minutes
                 break;
             case "Insulte":
-                // Sanction en cas d'insulte envers un joueur
+                mutePlayer(sender, target, reason, 86400); // 1 jour
                 break;
             case "Incitation a l'infraction":
-                // Sanction en cas d'incitation à l'infraction
+                mutePlayer(sender, target, reason, 86400); // 1 jour
                 break;
             case "Contournement protection chat":
-                // Sanction en cas de contournement de la protection du chat
+                mutePlayer(sender, target, reason, 172800); // 2 jours
                 break;
             case "Lien interdit":
-                // Sanction en cas d'envoi de lien interdit
-                banPlayer(sender, target, reason, 24*14);
+                banPlayer(sender, target, reason, 1209600); // 14 jours
                 break;
             case "Publicité":
-                // Sanction en cas de publicité pour un serveur ou un site
+                banPlayer(sender, target, reason, 1209600); // 14 jours
                 break;
             case "DDOS ou Hack/Fake/Phishing":
-                // Sanction en cas de tentative de DDOS, hack, fake ou phishing
-                banPlayer(sender, target, reason, 24*30);
+                banPlayer(sender, target, reason, 2592000); // 30 jours
                 break;
             case "Menace IRL":
-                // Sanction en cas de menace IRL sur un autre joueur
-                banPlayer(sender, target, reason, -1);
+                banPlayer(sender, target, reason, -1); // permanent
                 break;
             case "Triche : Anti-Knockback":
-                // Sanction en cas d'utilisation d'un anti-knockback
-                banPlayer(sender, target, reason, 24*7);
+                banPlayer(sender, target, reason, 604800); // 7 jours
                 break;
             case "Triche : KillAura":
-                // Sanction en cas d'utilisation d'un KillAura
-                banPlayer(sender, target, reason, 24*90);
+                banPlayer(sender, target, reason, 7776000); // 90 jours
                 break;
             case "Triche : Timer":
-                // Sanction en cas d'utilisation d'un timer
-                banPlayer(sender, target, reason, 24*7);
+                banPlayer(sender, target, reason, 604800); // 7 jours
                 break;
             case "Triche : Reach":
-                // Sanction en cas d'utilisation d'un reach
-                banPlayer(sender, target, reason, 24*90);
+                banPlayer(sender, target, reason, 7776000); // 90 jours
                 break;
             case "Triche : Macro":
-                // Sanction en cas d'utilisation d'une macro
-                banPlayer(sender, target, reason, 24*7);
+                banPlayer(sender, target, reason, 604800); // 7 jours
                 break;
             case "Triche : Fly":
-                // Sanction en cas d'utilisation d'un fly
-                banPlayer(sender, target, reason, 24*90);
+                banPlayer(sender, target, reason, 7776000); // 90 jours
                 break;
             case "Triche : Speedhack":
-                // Sanction en cas d'utilisation d'un speedhack
-                banPlayer(sender, target, reason, 24*90);
+                banPlayer(sender, target, reason, 7776000); // 90 jours
                 break;
             case "Triche : X-Ray":
-                // Sanction en cas d'utilisation d'un X-Ray
-                banPlayer(sender, target, reason, 24*90);
+                banPlayer(sender, target, reason, 7776000); // 90 jours
                 break;
             case "Triche : Scaffold":
-                // Sanction en cas d'utilisation d'un scaffold
-                banPlayer(sender, target, reason, 24*30);
+                banPlayer(sender, target, reason, 2592000); // 30 jours
                 break;
             case "Abus de report":
-                // Sanction en cas d'abus de la commande /report
+                banPlayer(sender, target, reason, 1209600); // 14 jours
                 break;
             case "Report quelque chose d'autorisé":
-                // Sanction en cas de report délibéré de quelque chose qui n'est pas interdit sur le serveur
+                banPlayer(sender, target, reason, 1209600); // 14 jours
                 break;
             case "Skin inapproprié":
-                // Sanction en cas d'utilisation d'un skin inapproprié ou choquant
-                banPlayer(sender, target, reason + "\nContactez un modérateur après avoir changé de skin pour être débanni", -1);
+                banPlayer(sender, target, reason + "\nContactez un modérateur après avoir changé de skin pour être débanni", -1); // permanent
                 break;
             case "Pseudo inapproprié":
-                // Sanction en cas d'utilisation d'un pseudo inapproprié ou choquant
-                banPlayer(sender, target, reason + "\nContactez un modérateur après avoir changé de pseudo pour être débanni", -1);
+                banPlayer(sender, target, reason + "\nContactez un modérateur après avoir changé de pseudo pour être débanni", -1); // permanent
                 break;
             case "Construction inappropriée":
-                // Sanction en cas de construction inappropriée ou choquante
-                banPlayer(sender, target, reason, 24*14);
+                banPlayer(sender, target, reason, 1209600); // 14 jours
                 break;
             default:
                 sender.sendMessage("§cErreur lors de la récupération de la sanction");
