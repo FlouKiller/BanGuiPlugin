@@ -11,3 +11,11 @@ commands:
     usage: /<command> <pseudo>
     permission: banguiplugin.bangui
     aliases: [bg]
+  mute:
+    description: Mute un joueur
+    usage: /<command> <pseudo> <durée> <raison>
+    permission: banguiplugin.mute
+  unmute:
+    description: Unmute un joueur
+    usage: /<command> <pseudo>
+    permission: banguiplugin.unmute

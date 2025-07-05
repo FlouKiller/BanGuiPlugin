@@ -5,6 +5,8 @@ import org.bukkit.BanEntry;
 import org.bukkit.BanList;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -157,7 +159,7 @@ public class SanctionsManager {
         sender.sendMessage("§aLe joueur " + target.getName() + " a bien été banni pour " + reason);
     }
 
-    public static void mutePlayer(Player sender, OfflinePlayer target, String reason, int duration) {
+    public static void mutePlayer(CommandSender sender, OfflinePlayer target, String reason, int duration) {
         File folder = Main.getInstance().getDataFolder();
         if (!folder.exists()) {
             folder.mkdirs(); // Crée le dossier du plugin s'il n'existe pas
@@ -197,6 +199,9 @@ public class SanctionsManager {
         }
 
         sender.sendMessage("§aLe joueur " + target.getName() + " a été mute pour " + duration + " secondes. Raison : " + reason);
+        if( target.isOnline() ) {
+            target.getPlayer().sendMessage("§cVous avez été mute pour " + duration + " secondes. Raison : " + reason);
+        }
     }
 
     public static boolean isMuted(OfflinePlayer target) {
@@ -231,7 +236,7 @@ public class SanctionsManager {
         return true;
     }
 
-    public static void unmutePlayer(OfflinePlayer target) {
+    public static void unmutePlayer(CommandSender sender, OfflinePlayer target) {
         File file = new File(Main.getInstance().getDataFolder(), "mutedPlayers.yml");
         if (!file.exists()) return;
 
@@ -247,7 +252,49 @@ public class SanctionsManager {
                 e.printStackTrace();
             }
         }
+
+        sender.sendMessage("§aLe joueur " + target.getName() + " a été unmute.");
+        if( target.isOnline() ) {
+            target.getPlayer().sendMessage("§aVous avez été unmute");
+        }
     }
 
+    public static String getMuteReason(OfflinePlayer target) {
+        File file = new File(Main.getInstance().getDataFolder(), "mutedPlayers.yml");
+        if (!file.exists()) return "Aucune raison définie";
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        UUID targetUUID = target.getUniqueId();
+        String path = "muted." + targetUUID;
+
+        if (config.contains(path)) {
+            return config.getString(path + ".reason", "Aucune raison définie");
+        }
+
+        return "Aucune raison définie";
+    }
+
+    public static String getMuteExpiration(OfflinePlayer target) {
+        File file = new File(Main.getInstance().getDataFolder(), "mutedPlayers.yml");
+        if (!file.exists()) return "Aucune expiration définie";
+
+        FileConfiguration config = YamlConfiguration.loadConfiguration(file);
+        UUID targetUUID = target.getUniqueId();
+        String path = "muted." + targetUUID;
+
+        if (config.contains(path)) {
+            long start = config.getLong(path + ".start");
+            int duration = config.getInt(path + ".duration"); // en secondes
+
+            if (duration == -1) return "Permanent";
+
+            long end = start + duration * 1000L;
+            Date date = new Date(end);
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            return sdf.format(date);
+        }
+
+        return "Aucune expiration définie";
+    }
 
 }

@@ -1,6 +1,7 @@
 package fr.floukiller.banguiplugin;
 
 import fr.floukiller.banguiplugin.commands.BanguiCommand;
+import fr.floukiller.banguiplugin.commands.MuteCommands;
 import fr.floukiller.banguiplugin.managers.EventsManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +25,8 @@ public class Main extends JavaPlugin {
         new EventsManager().registers();
 
         Objects.requireNonNull(getCommand("bangui")).setExecutor(new BanguiCommand());
+        Objects.requireNonNull(getCommand("mute")).setExecutor(new MuteCommands());
+        Objects.requireNonNull(getCommand("unmute")).setExecutor(new MuteCommands());
 
         getLogger().info("Plugin BanguiPlugin activé !");
     }
