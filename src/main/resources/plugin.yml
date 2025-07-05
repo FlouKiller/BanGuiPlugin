@@ -10,3 +10,4 @@ commands:
     description: Ouvre l'interface graphique de bannissement
     usage: /<command> <pseudo>
     permission: banguiplugin.bangui
+    aliases: [bg]

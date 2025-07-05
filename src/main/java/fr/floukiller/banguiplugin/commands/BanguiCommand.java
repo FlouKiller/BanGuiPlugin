@@ -12,7 +12,7 @@ public class BanguiCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-        if(label.equalsIgnoreCase("bangui")){
+        if(label.equalsIgnoreCase("bangui") || label.equalsIgnoreCase("bg")){
 
             if(!(sender instanceof Player player)){
                 sender.sendMessage("§cVous devez être un joueur pour exécuter cette commande !");
